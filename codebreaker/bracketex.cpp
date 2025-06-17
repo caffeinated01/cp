@@ -1,5 +1,3 @@
-// NOT AC YET !!!
-
 #include <cstdio>
 #include <stdio.h>
 #include <stdbool.h>
@@ -24,6 +22,7 @@
 #include <random>
 #include <chrono>
 #include <fstream>
+
 using namespace std;
 
 int main(){
@@ -33,18 +32,36 @@ int main(){
   stack<char> s;
 
   int L; cin >> L;
+  bool flag = false;
+
+  map<char, char> m;
+  m['('] = ')';
+  m['['] = ']';
+  m['{'] = '}';
 
   for (int i=0; i<L; i++){
     char c; cin >> c;
     
     if (c == '(' || c == '[' || c == '{'){
       s.push(c);
-    } else if(!s.empty() && ((c == ')' && s.top() == '(') || (c == ']' && s.top() == '[') || (c == '}' && s.top() == '{'))) {
-      s.pop();
-    }  
-  }
+    } 
 
-  if (s.empty()){
+    else if(!s.empty() && c == ')' && s.top() == '('){
+        s.pop();
+    } 
+    else if (!s.empty() && c == ']' && s.top() == '['){
+        s.pop();
+    } 
+    else if (!s.empty() && c == '}' && s.top() == '{'){
+        s.pop();
+    }
+    else{
+        flag = true;
+    }
+    
+}
+
+  if (s.empty() && !flag){
     cout << "Valid";
   } else{
     cout << "Invalid";
