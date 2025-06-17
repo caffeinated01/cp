@@ -22,3 +22,11 @@
 #include <random>
 #include <chrono>
 #include <fstream>
+
+using namespace std;
+
+#define int long long
+
+int32_t main(){
+  return 0;
+}
