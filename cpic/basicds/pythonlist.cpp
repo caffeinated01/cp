@@ -27,9 +27,27 @@ using namespace std;
 
 #define int long long
 
-int32_t main()
-{
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
-  return 0;
+int32_t main(){
+  stack<int> s;
+
+  int Q; cin >> Q;
+
+
+  for (int i=0; i<Q; i++){
+    int o; cin >> o;
+    
+    if (o == 1){
+      int X; cin >> X;
+
+      s.push(X);
+    }
+    else if (o == 2){
+      if (!s.empty()){
+        cout << s.top() << "\n";
+        s.pop();
+      } else {
+        cout << "Empty" << "\n";
+      }
+    }
+  }
 }

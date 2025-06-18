@@ -31,5 +31,31 @@ int32_t main()
 {
   ios_base::sync_with_stdio(0);
   cin.tie(0);
-  return 0;
+
+  int N, m;
+  cin >> N >> m;
+  int ans = 0;
+
+  priority_queue<int, vector<int>, greater<int>> pq;
+
+  for (int i = 0; i < m; i++)
+  {
+    int k;
+    cin >> k;
+    pq.push(k);
+  }
+
+  while (!pq.empty())
+  {
+    if ((N - pq.top()) >= 0)
+    {
+      N -= pq.top();
+      ans += 1;
+      pq.pop();
+      continue;
+    }
+    break;
+  }
+
+  cout << ans;
 }

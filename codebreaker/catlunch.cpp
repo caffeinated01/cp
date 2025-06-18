@@ -29,7 +29,31 @@ using namespace std;
 
 int32_t main()
 {
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
-  return 0;
+  int N, K;
+  cin >> N >> K;
+  int curr = 0;
+  int ans = 0;
+  
+  priority_queue<int> pq;
+
+  for (int i = 0; i < N; i++)
+  {
+    int T;
+    cin >> T;
+
+    if (T >= 0)
+    {
+      curr += T;
+    }
+    else {
+      pq.push(T);
+      if (pq.size() >= K)
+      {
+        curr += pq.top();
+        pq.pop();
+      }
+    }
+    ans = max(curr, ans);
+  }
+  cout << ans;
 }

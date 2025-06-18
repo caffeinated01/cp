@@ -25,11 +25,24 @@
 
 using namespace std;
 
-#define int long long
-
-int32_t main()
+int main()
 {
   ios_base::sync_with_stdio(0);
   cin.tie(0);
+
+  int N;
+  cin >> N;
+
+  set<string> s;
+
+  for (int i = 0; i < N; i++)
+  {
+    string n;
+    cin >> n;
+    s.insert(n);
+  }
+
+  cout << s.size();
+  
   return 0;
 }

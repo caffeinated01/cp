@@ -27,9 +27,18 @@ using namespace std;
 
 #define int long long
 
-int32_t main()
-{
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
-  return 0;
+int32_t main(){
+  int N; cin >> N;
+
+  deque<int> deq;
+
+  for (int i=0; i<N; i++){
+    int A; cin >> A;
+    deq.push_back(A);
+  }
+
+  for (int j=0; j<N; j++){
+    cout << deq.back() << " ";
+    deq.pop_back();
+  }
 }
