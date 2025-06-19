@@ -182,7 +182,7 @@ void prefix_sum() {
 // Idea: Binary search for the optimal value itself.
 // Trigger: "Minimize the maximum ..." or "Maximize the minimum ..."
 // The hard part is writing the check() function.
-void prefix_sum() {
+void bsta() {
   int  l = 1, r = 1e10; // l is min possible val, r is max possible value
   
   while (l < (r - 1))
