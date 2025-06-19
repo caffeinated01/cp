@@ -17,7 +17,6 @@ int32_t main()
 
   int  l = 1, r = 1e10; // l is min possible val, r is max possible value
 
-  // TEMPLATE
   while (l < (r - 1))
   {
     int mid = (l + r) / 2;
