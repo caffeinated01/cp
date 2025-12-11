@@ -220,15 +220,15 @@ void sliding_window() {
   int ans = 0;
 
   for (int r=0; r<N; r++){
-    sum += v[r];
+    sum += v[r]; // expand window to right
 
     while (condition){
-      sum -= v[l];
+      sum -= v[l]; // shrink window from left
       l++;
     }
     
     if (sum > ans){
-      ans = sum;
+      ans = sum; // save best valid window
     }
   }
 }
