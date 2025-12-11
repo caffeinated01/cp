@@ -19,29 +19,40 @@
 #include <cstring>
 #include <numeric>
 #include <cassert>
+#include <random>
 #include <chrono>
+#include <fstream>
 
 using namespace std;
 
-int main()
+#define int long long
+
+int32_t main()
 {
-  vector<int> adj[1000]; // beware of 1 indexing -- this is 0 indexed
-  int V, E, A, B;
-  cin >> V >> E;
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
 
-  for (int i = 0; i < E; i++)
+  int n, e, a, b;
+
+  cin >> n >> e;
+
+  int adj[51][51];
+  memset(adj, 0, sizeof(adj));
+
+  for (int i = 0; i < e; ++i)
   {
-    cin >> A >> B;
+    cin >> a >> b;
 
-    adj[A].push_back(B);
-    adj[B].push_back(A);
+    adj[a][b] = 1;
+    adj[b][a] = 1;
   }
 
-  for (int i = 0; i < V; i++)
+  for (int i = 1; i <= n; ++i)
   {
-    for (auto j : adj[i])
+    for (int j = 1; j <= n; ++j)
     {
-      cout << j << " ";
+      cout << adj[i][j];
     }
     cout << "\n";
   }
