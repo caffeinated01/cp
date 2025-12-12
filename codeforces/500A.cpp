@@ -27,10 +27,43 @@ using namespace std;
 
 #define int long long
 
+int n, t;
+vector<int> a;
+vector<bool> visited;
+
+bool dfs(int x)
+{
+  if (x == t)
+    return true;
+  if (visited[x])
+    return false;
+  visited[x] = true;
+  return dfs(x + a[x]);
+}
+
 int32_t main()
 {
   ios_base::sync_with_stdio(0);
   cin.tie(0);
   cout.tie(0);
+
+  cin >> n >> t;
+  a.resize(n + 1);
+  visited.assign(n + 1, false);
+
+  for (int i = 1; i <= n - 1; i++)
+  {
+    cin >> a[i];
+  }
+
+  if (dfs(1))
+  {
+    cout << "YES";
+  }
+  else
+  {
+    cout << "NO";
+  }
+
   return 0;
 }
